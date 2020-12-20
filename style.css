@@ -9,7 +9,12 @@
     --background-color: rgb(59, 42, 42);
 }
 
-#button {
+.btn-control {
+    margin: 20px auto;
+    text-align: center;
+}
+
+button {
     padding: 20px;
     border-radius: 20px;
     background-color: grey;
@@ -21,35 +26,31 @@
     outline: none;
 }
 
-#button:hover {
+button:hover {
     background-color: rgb(183, 241, 124);
     color: gray;
 }
 
-#button:active {
+button:active {
     box-shadow: 1px 4px 3px rgb(2, 58, 20);
-}
-
-.btn-control {
-    margin: 20px auto 50px;
-    position: relative;
-    grid-column-start: 1;
-    grid-column-end: var(--grid-cols);
 }
 
 .container {
     display: grid;
-    max-width: 50%;
-    grid-template: repeat(var(--grid-rows), auto) / repeat(var(--grid-cols), auto);
+    grid-template-rows: repeat(var(--grid-rows), auto);
+    grid-template-columns: repeat(var(--grid-cols), auto);
     margin: 0 auto;
-    grid-gap: 2rem;
+    width: 70vw;
+    border: 3px solid red;
 }
 
 .grid-cells {
-    grid-area: 2 / 2;
+    grid-row: 1 / span auto;
+    grid-column: 1 / span auto;
     background-color: rgb(59, 42, 42);
-    padding: 15%;
-    margin: 0 auto;
-    border-radius: 35%;
-    border: 3px solid rgb(148, 241, 7);
+    padding: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 15%;
+    border: 1px solid rgb(148, 241, 7);
 }
