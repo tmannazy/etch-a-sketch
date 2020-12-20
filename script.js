@@ -14,7 +14,6 @@
 
 const container = document.querySelector('.container');
 const button = document.querySelector('#button');
-const gridCells = document.querySelectorAll('.grid-cells');
 
 function createGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
@@ -25,32 +24,38 @@ function createGrid(rows, cols) {
     }
 }
 
+resetGrid = () => {
+    // container.innerHTML = '';
+    let gridCells = document.querySelectorAll('.grid-cells');
+    gridCells.forEach(cell => {
+        cell.remove();
+    });
+    addNewGrid();
+}
 
-// function resetGrid() {
-//         // createGrid(5, 5);
-//         document.querySelectorAll('.grid-cells').forEach(item => item.style = '');
-// };
-
-// button.addEventListener('click', resetGrid);
-button.addEventListener('click', () => {
+addNewGrid = () => {
     let gridNum = parseInt(prompt('Enter your grid size', 'Type a number'));
     if (/^[0-9.,]+$/.test(gridNum) && gridNum > 1 && gridNum <= 50) {
         createGrid(gridNum, gridNum);
-        // resetGrid();
     } else {
-        alert('Enter a grid size between 1 and  50');
+        alert('Enter a grid size between 2 and  50');
+        gridDisplay();
     }
-});
-
-gridCells.forEach(cells => {
-    cells.addEventListener('mouseover', () => cells.style.backgroundColor = 'red');
-});
-
-
-function gridDisplay() {
-    createGrid(5, 5);
-    // createGrid(gridNum, gridNum);
+    colorGrid();
 }
+
+colorGrid = () => {
+    const gridCells = document.querySelectorAll('.grid-cells');
+    gridCells.forEach(cell => {
+        cell.addEventListener('mouseover', () => cell.classList.add('grid-color'));
+    });
+}
+
+gridDisplay = () => {
+    createGrid(5, 5);
+    colorGrid();
+}
+button.addEventListener('click', resetGrid);
 
 gridDisplay();
 
