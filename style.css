@@ -19,6 +19,34 @@ body {
     --background-color: rgb(59, 42, 42);
 }
 
+h1 {
+    grid-area: titlepage;
+    margin: 30px 0;
+    text-align: center;
+    color: rgb(126, 125, 125);
+    font-size: 2.5rem;
+    text-shadow: 2px 4px 5px rgb(3, 95, 3);
+}
+
+aside p {
+    grid-area: infoparagraph;
+    text-align: center;
+    margin: 30px 0 2px;
+    color: rgb(1, 43, 1);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 4rem;
+}
+
+aside {
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 500px auto;
+    grid-template-areas:
+        "titlepage titlepage"
+        "infoparagraph infoparagraph";
+}
+
 .btn-control {
     margin: 20px auto;
     text-align: center;
@@ -53,6 +81,7 @@ button:active {
     grid-template-columns: repeat(var(--grid-cols), auto);
     margin: 0 auto;
     width: 75vw;
+    height: 50%;
     border: 3px solid rgba(235, 221, 221, 0.418);
 }
 
@@ -84,5 +113,52 @@ button:active {
         cursor: pointer;
         text-decoration: none;
         outline: none;
+    }
+
+    aside {
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        grid-template-areas:
+            "titlepage"
+            "infoparagraph";
+    }
+
+
+    h1 {
+        text-align: center;
+        color: rgb(126, 125, 125);
+        font-size: 2.5rem;
+        text-shadow: 2px 4px 5px rgb(3, 95, 3);
+    }
+
+    aside p {
+        text-align: center;
+        color: rgb(1, 43, 1);
+        font-style: italic;
+        font-size: 1rem;
+        margin: 0;
+        padding: 0 10px;
+        font-weight: 600;
+        line-height: 20px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    aside {
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        grid-template-areas:
+            "titlepage ."
+            "infoparagrapgh";
+    }
+
+    h1 {
+        margin: 10px 0;
+    }
+
+    aside p {
+        line-height: 20px;
+        padding: 0 20px;
+        margin: 0;
     }
 }

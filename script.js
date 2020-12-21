@@ -9,9 +9,6 @@
 // Move over the boxes to make a sketch as it colors the board
 // Make your desired sketch.
 
-
-
-
 const container = document.querySelector('.container');
 const button = document.querySelector('#button');
 
@@ -34,9 +31,9 @@ resetGrid = () => {
 }
 
 addNewGrid = () => {
-    let gridNum = parseInt(prompt('Enter your grid size', 'Type a number'));
-    if (/^[0-9.,]+$/.test(gridNum) && gridNum > 1 && gridNum <= 50) {
-        createGrid(gridNum, gridNum);
+    let gridSize= parseInt(prompt('Enter your grid size', 'Type a number'));
+    if (/^[0-9.,]+$/.test(gridSize) && gridSize> 1 && gridSize<= 50) {
+        createGrid(gridSize, gridSize);
     } else {
         alert('Enter a grid size between 2 and  50');
         gridDisplay();
