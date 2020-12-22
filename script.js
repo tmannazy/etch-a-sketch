@@ -12,7 +12,7 @@
 const container = document.querySelector('.container');
 const button = document.querySelector('#button');
 
-function createGrid(rows, cols) {
+createGrid = (rows, cols) => {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (let i = 0; i < (rows * cols); i++){
@@ -22,7 +22,6 @@ function createGrid(rows, cols) {
 }
 
 resetGrid = () => {
-    // container.innerHTML = '';
     let gridCells = document.querySelectorAll('.grid-cells');
     gridCells.forEach(cell => {
         cell.remove();
